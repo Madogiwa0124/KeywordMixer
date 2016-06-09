@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN"
+        }
+        .container{
+            padding-bottom: 20px;
+        }
+        .footer {
+            position: relative;
+            bottom: 0px;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: #8edcff;
+        }
+        
+        .container .text-muted {
+            margin: 20px 0;
+        }
+        
+        .footer > .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-bottom: 0px;
+        }
+        #wordHistory_head {
+            background-color: #eeeeee;
+        }
+        /*navvarの定義*/
+        
+        .navbar-default {
+            background-color: #92cfff;
+            border-color: #8edcff;
+        }
+        
+        .navbar-default .navbar-brand {
+            color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: #ffffff;
+        }
+        
+        .navbar-default .navbar-text {
+            color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-nav > li > a {
+            color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffffff;
+        }
+        
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffffff;
+            background-color: #8edcff;
+        }
+        
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffffff;
+            background-color: #8edcff;
+        }
+        
+        .navbar-default .navbar-toggle {
+            border-color: #8edcff;
+        }
+        
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #8edcff;
+        }
+        
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-link {
+            color: #f9f9f9;
+        }
+        
+        .navbar-default .navbar-link:hover {
+            color: #ffffff;
+        }
+        
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #f9f9f9;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffffff;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffffff;
+                background-color: #8edcff;
+            }
+        }
+    </style>
+    <title>キーワードミキサー</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".target">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="" style="color:#ffffff">
+                キーワード
+                <i class="glyphicon glyphicon-refresh"></i>
+                ミキサー
+            </a>
+
+        </div>
+        <div class="collapse navbar-collapse target">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#ideaPost">
+                        <i class="glyphicon glyphicon-send"></i> アイデアを投稿する
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li>
+                    <!--Twitter「#キーワードミキサー」の検索結果画面に遷移-->
+                    <a href="#ideaList" target="blank">
+                        <i class="glyphicon glyphicon-list-alt"></i> みんなの投稿を見る
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="padding-right:10px">
+                <li>
+                    <a href="#about">
+                        <i class="glyphicon glyphicon-user"></i> キーワードミキサーとは
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" id="ideaPost">
+        <h2>アイデアを投稿する</h2>
+        <!--フォームはボタン押下時に再描画させない-->
+        <form onsubmit="return false;">
+            <p>
+                <label class="control-label">キーワード①</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="word1">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="resetBtn1">
+                            <i class="glyphicon glyphicon-refresh"></i>更新
+                        </button>
+                    </span>
+                </div>
+            </p>
+            <p>
+                <label class="control-label">キーワード②</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="word2">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="resetBtn2">
+                            <i class="glyphicon glyphicon-refresh"></i>更新
+                        </button>
+                    </span>
+                </div>
+            </p>
+            <p>アイデア<textarea class="form-control" id="ideaText"></textarea></p>
+            <button class="btn btn-primary" id="postBtn">
+                <i class="glyphicon glyphicon-send"></i> 
+                アイデアを投稿する
+            </button>
+        </form>
+        <br>
+        <p>キーワード履歴</p>
+        <table class="table table-bordered table-bordered table-hover table-condensed">
+            <thead id="wordHistory_head">
+                <tr><th>キーワード①</th><th>キーワード②</th></tr>
+            </thead>
+            <tbody id="wordHistory_body"></tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="container" id="ideaList">
+        <h2>みんなの投稿をみる</h2>
+        <p>"#キーワードミキサー"のTweet検索結果を表示します。</p>
+        <button class="btn btn-success" onclick="window.open('https://twitter.com/search?f=tweets&q=%23%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E3%83%9F%E3%82%AD%E3%82%B5%E3%83%BC&src=typd')"
+            target="blank">
+            <i class="glyphicon glyphicon-list-alt"></i>
+            みんなの投稿をみる
+        </button>
+
+    </div>
+    <hr>
+    <div class="container" id="about">
+        <h2>キーワードミキサーとは</h2>
+        <p>
+            キーワードミキサーは、2つのキーワードから連想されるアイデアをTwitterに投稿できるサービスです。
+            <br> 投稿したアイデアは、ハッシュタグ「#キーワードミキサー」が付与されて投稿されます。
+        </p>
+        <p>
+            製作者Twitter：窓際少年(@Madogiwa_Boy)<br>
+            <button class="btn btn-warning" onclick="window.open('https://twitter.com/Madogiwa_Boy')">
+                <i class="glyphicon glyphicon-user"></i> 
+                問い合わせ
+            </button>
+        </p>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted" style="color:#ffffff;">Copyright © 2016 窓際少年 All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!--Include jQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--Include MyScripts-->
+    <script src="./keywords.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
