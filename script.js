@@ -69,13 +69,23 @@ $(function () {
         wordResetCnt++;
     }
 
+    // キーワード履歴の登録
     function insertWordHistry() {
         // 現時点のワードの情報を取得
         var beforeWords = words;
-        console.log(beforeWords);
-        wordHistory_body.innerHTML += "<tr><td>" + words[0].value + "</td><td>" + words[1].value + "</td></tr>";
+        wordHistory_body.innerHTML += "<tr><td>" + escapeHtml(words[0].value) + "</td><td>" + escapeHtml(words[1].value) + "</td></tr>";
     } 
     
+    // HTMLエスケープ処理
+    function escapeHtml(str) {
+        str = str.replace(/&/g, '&amp;');
+        str = str.replace(/</g, '&lt;');
+        str = str.replace(/>/g, '&gt;');
+        str = str.replace(/"/g, '&quot;');
+        str = str.replace(/'/g, '&#39;');
+        return str;
+    }
+
     // #キーワードミキサーのTweet検索結果を取得 ★TODO:Twitter APIを用いて検索結果を取得する。
     // function getTweetList(feedUrl) {
     //     $.getJSON(feedUrl, function (json){console.log(json)});
