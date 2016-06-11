@@ -5,119 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
-        }
-        .container{
-            padding-bottom: 20px;
-        }
-        .footer {
-            position: relative;
-            bottom: 0px;
-            width: 100%;
-            /* Set the fixed height of the footer here */
-            height: 60px;
-            background-color: #8edcff;
-        }
-        
-        .container .text-muted {
-            margin: 20px 0;
-        }
-        
-        .footer > .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            padding-bottom: 0px;
-        }
-        #wordHistory_head {
-            background-color: #eeeeee;
-        }
-        /*navvarの定義*/
-        
-        .navbar-default {
-            background-color: #92cfff;
-            border-color: #8edcff;
-        }
-        
-        .navbar-default .navbar-brand {
-            color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-brand:focus {
-            color: #ffffff;
-        }
-        
-        .navbar-default .navbar-text {
-            color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-nav > li > a {
-            color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-nav > li > a:hover,
-        .navbar-default .navbar-nav > li > a:focus {
-            color: #ffffff;
-        }
-        
-        .navbar-default .navbar-nav > .active > a,
-        .navbar-default .navbar-nav > .active > a:hover,
-        .navbar-default .navbar-nav > .active > a:focus {
-            color: #ffffff;
-            background-color: #8edcff;
-        }
-        
-        .navbar-default .navbar-nav > .open > a,
-        .navbar-default .navbar-nav > .open > a:hover,
-        .navbar-default .navbar-nav > .open > a:focus {
-            color: #ffffff;
-            background-color: #8edcff;
-        }
-        
-        .navbar-default .navbar-toggle {
-            border-color: #8edcff;
-        }
-        
-        .navbar-default .navbar-toggle:hover,
-        .navbar-default .navbar-toggle:focus {
-            background-color: #8edcff;
-        }
-        
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-            border-color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-link {
-            color: #f9f9f9;
-        }
-        
-        .navbar-default .navbar-link:hover {
-            color: #ffffff;
-        }
-        
-        @media (max-width: 767px) {
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-                color: #f9f9f9;
-            }
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-                color: #ffffff;
-            }
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-                color: #ffffff;
-                background-color: #8edcff;
-            }
-        }
-    </style>
+    <link href="./default.css" rel="stylesheet">
     <title>キーワードミキサー</title>
 </head>
 <body>
@@ -186,7 +74,10 @@
                     </span>
                 </div>
             </p>
-            <p>アイデア<textarea class="form-control" id="ideaText"></textarea></p>
+            <p>
+                <label class="control-label">アイデア</label>
+                <textarea class="form-control" id="ideaText"></textarea>
+            </p>
             <button class="btn btn-primary" id="postBtn">
                 <i class="glyphicon glyphicon-send"></i> 
                 アイデアを投稿する
